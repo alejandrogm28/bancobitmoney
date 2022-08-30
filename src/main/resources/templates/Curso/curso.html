@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Matricula Online</title>
+
+<!-- Custom fonts for this template-->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+	<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+		<span sec:authentication="name"></span>
+		
+		<!-- Slidebar -->
+    	<div th:replace="fragments/slidebar :: slidebar"></div>
+    	<!-- End of Slidebar -->
+    	
+    	<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<div th:replace="fragments/topbar :: topbar"></div>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+    			<div class="container-fluid">
+    			
+    				<!-- Page Heading -->
+					<h1 class="h3 mb-4 text-gray-800">Registro Cursos</h1>
+					
+					<hr class="sidebar-divider">
+
+					<form th:action="@{/registrar}" method="post" th:object="${Curso}">
+						<div class="form-group">
+						
+							<label for="idCurso">ID:</label> <input type="text"
+								class="form-control" th:field="*{idCurso}"></input>
+
+							<label for="idSalon">ID Salon:</label> <input type="text"
+								class="form-control" th:field="*{idSalon}"></input>
+								<label for="idSede">ID Sede:</label> <input type="text"
+								class="form-control" th:field="*{idSede}"></input>
+
+							<div class="form-group">
+								<label for="nombre">Nombre:</label> <input type="text"
+									class="form-control" th:field="*{nombreCurso}" id="nombre"></input>
+
+								<div class="alert alert-danger"
+									th:if="${#fields.hasErrors('nombreCurso')}"
+									th:errors="*{nombreCurso}"></div>
+
+								<label for="descuento">Descuento:</label> <input type="text"
+									class="form-control" th:field="*{descCurso}" id="Descuento"></input>
+
+								<div class="alert alert-danger"
+									th:if="${#fields.hasErrors('descCurso')}"
+									th:errors="*{descCurso}"></div>
+
+								
+
+								<label for="vacantes"># de Vacantes:</label> <input type="text"
+									class="form-control" th:field="*{numVacantesCurso}" id="numero"></input>
+
+								<div class="alert alert-danger"
+									th:if="${#fields.hasErrors('numVacantesCurso')}" th:errors="*{numVacantesCurso}">
+								</div>
+
+								<label for="docente">Docente:</label> <input type="text"
+									class="form-control" th:field="*{docente}" id="docente"></input>
+
+								<div class="alert alert-danger"
+									th:if="${#fields.hasErrors('docente')}"
+									th:errors="*{docente}"></div>
+
+								
+								
+								<label for="escuela">Escuela:</label> 
+								<input type="text"
+									class="form-control" th:field="*{escuela}" id="escuela"></input>
+
+								<div class="alert alert-danger"
+									th:if="${#fields.hasErrors('escuela')}"
+									th:errors="*{escuela}"></div>
+									
+							</div>
+
+						</div>
+						<button type="submit" value="Guardar" class="btn btn-primary" >Guardar</button>
+						<a href="/login" class="btn btn-danger">Cancelar</a>
+					</form>
+					
+				</div>
+				<!-- /.container-fluid -->
+				
+				</div>
+    		<!-- End of Main Content -->
+    			
+			<!-- Footer -->
+			<div th:replace="fragments/footer :: footer"></div>
+			<!-- End of Footer -->
+			
+    	</div>
+    	<!-- End of Content Wrapper -->
+    	
+    	</div>
+    <!-- End of Page Wrapper -->
+    
+    <!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div th:replace="fragments/logout:: logout"></div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+    
+	</body>
+
+</html>

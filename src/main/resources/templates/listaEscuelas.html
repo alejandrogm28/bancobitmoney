@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		
+		<meta charset="UTF-8"></meta>
+		
+		<title>Escuelas</title>
+		
+		<script type="text/javascript"
+			src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="//code.jquery.com/jquery-1.11.1.min.js">
+		</script>
+
+	</head>
+
+	<body >
+	
+
+		<div class="container">
+			<div id="myform">
+				<div class="row clearfix">
+					<div class="col-md-12 column" align="center">
+				<p></p>
+					
+			
+						
+						<table class="table table-hover" id="tab_logic">
+							<thead class="thead-dark">
+								<tr>
+									<th class="text-center" >CODIGO</th>
+									<th class="text-center" >Nombre</th>
+									
+			
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="cat: ${listaEscuelas}">
+									<td th:text="${cat.idEscuela}"></td>
+									<td th:text="${cat.nombreEscuela}"></td>
+									<td>
+									
+						
+						
+					
+			
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+											
+					</div>
+				</div>
+			<div th:if="${mensaje}" class="alert alert-danger">
+				<p th:text="${mensaje}"></p>
+			</div>
+		</div>
+	</div>
+	
+
+	</body>
+</html>
